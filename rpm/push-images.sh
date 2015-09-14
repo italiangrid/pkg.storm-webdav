@@ -8,7 +8,9 @@ if [ -z "${DOCKER_REGISTRY_HOST}" ]; then
 fi
 
 for t in ${tags}; do
-  if [[ "${BUILD_PLATFORM}" == "${t}" ]]; then
+  STATE=$(echo ${BUILD_PLATFORM} | grep ${t} | awk '{print $1}')
+  if [ ! -z "$STATE" ]
+  then
     docker tag -f  italiangrid/pkg.storm-webdav-server:${t} ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
     docker push ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
   fi
