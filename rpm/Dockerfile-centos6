@@ -1,0 +1,8 @@
+FROM  italiangrid/build-centos6
+
+#run yum -y install oracle-instantclient-basic
+user build
+add Makefile ./storm-webdav.spec.in /home/build/
+workdir /home/build
+
+cmd /bin/bash -c make

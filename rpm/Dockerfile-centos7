@@ -1,0 +1,7 @@
+FROM  italiangrid/build-centos7
+
+user build
+add Makefile ./storm-webdav.spec.in /home/build/
+workdir /home/build
+
+cmd /bin/bash -c make

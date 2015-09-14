@@ -1,0 +1,8 @@
+FROM  italiangrid/build-centos5
+
+run yum -y install redhat-rpm-config
+user build
+add Makefile ./storm-webdav.spec.in /home/build/
+workdir /home/build
+
+CMD /bin/bash -l -c make
