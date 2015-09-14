@@ -1,5 +1,6 @@
 #!/bin/bash
 set -ex
+plat=$1
 tags="centos5 centos6 centos7"
 
 if [ -z "${DOCKER_REGISTRY_HOST}" ]; then
@@ -8,6 +9,8 @@ if [ -z "${DOCKER_REGISTRY_HOST}" ]; then
 fi
 
 for t in ${tags}; do
-  docker tag -f  italiangrid/pkg.storm-webdav-server:${t} ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
-  docker push ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
+  if [ "${plat}" == "${t}" ]; then
+    docker tag -f  italiangrid/pkg.storm-webdav-server:${t} ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
+    docker push ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
+  fi
 done
