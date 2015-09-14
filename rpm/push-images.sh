@@ -9,7 +9,7 @@ if [ -z "${DOCKER_REGISTRY_HOST}" ]; then
 fi
 
 for t in ${tags}; do
-  if [ "${plat}" == "${t}" ]; then
+  if [[ "${plat}" == "${t}" ]]; then
     docker tag -f  italiangrid/pkg.storm-webdav-server:${t} ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
     docker push ${DOCKER_REGISTRY_HOST}/italiangrid/pkg.storm-webdav:${t}
   fi
