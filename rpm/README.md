@@ -5,13 +5,11 @@
 `build-images.sh` builds the Docker images used to create the packages:
 
 
-- `italiangrid/pkg.storm-webdav:centos5`
 - `italiangrid/pkg.storm-webdav:centos6`
 - `italiangrid/pkg.storm-webdav:centos7`
 
 These images depend on the following common images:
 
-- italiangrid/build-centos5
 - italiangrid/build-centos6
 - italiangrid/build-centos7
 

@@ -9,7 +9,6 @@ to generate packages for storm-webdav version >=  1.0.3.
 ## Supported platforms
 
 - RPM-based
-        - centos5
         - centos6
         - centos7
 
